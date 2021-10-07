@@ -15,7 +15,9 @@ $txt = '<?php
 ?>';
 fwrite($myfile, $txt);
 fclose($myfile);
-echo '<style>
+echo '
+<link rel="stylesheet" href="css/main.css">
+<style>
 input{
     margin-top:30vh;
   width: 100%;
