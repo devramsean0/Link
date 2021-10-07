@@ -8,6 +8,7 @@ if (!empty($_POST['link'])&&!empty($_POST['short'])) {
 if (file_exists($short)) {
     echo "<h1 style='text-align:center;'>short link already exist</h1>";
 } else {
+chdir('./sites');
 mkdir($short);
 $myfile = fopen($short."/index.php", "w") or die("failed");
 $txt = '<?php
