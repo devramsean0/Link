@@ -12,8 +12,9 @@ chdir('./sites');
 mkdir($short);
 $myfile = fopen($short."/index.php", "w") or die("failed");
 $txt = '<?php
+  sleep(5);
   header("Location: '.$link.'");
-?>';
+  ?>';
 fwrite($myfile, $txt);
 fclose($myfile);
 echo '
