@@ -1,13 +1,16 @@
 <?php
+// form
 if (!empty($_POST['link'])&&!empty($_POST['short'])) {
   $link=$_POST["link"];
   
  if(strpos($link, "http://") !== 0||strpos($link, "https://") !== 0){
   if (filter_var($link, FILTER_VALIDATE_URL)) {
     $short=$_POST["short"];
+// existance check 
 if (file_exists($short)) {
     echo "<h1 style='text-align:center;'>short link already exist</h1>";
 } else {
+// redirect write
 chdir('./sites');
 mkdir($short);
 $myfile = fopen($short."/index.php", "w") or die("failed");
@@ -17,6 +20,7 @@ $txt = '<?php
   ?>';
 fwrite($myfile, $txt);
 fclose($myfile);
+/// page view
 echo '
 <link rel="stylesheet" href="css/main.css">
 <style>
