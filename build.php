@@ -11,6 +11,7 @@ if (file_exists($short)) {
     echo "<h1 style='text-align:center;'>short link already exist</h1>";
 } else {
 // redirect write
+if (file_exists('./sites')) {
 chdir('./sites');
 mkdir($short);
 $myfile = fopen($short."/index.php", "w") or die("failed");
@@ -42,9 +43,23 @@ function myFunction() {
   document.execCommand("copy");
 }
 </script>';
-} 
-  }
+} else {
+  echo '
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+  input{
+      margin-top:30vh;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }</style><h1 style="text-align:center;">Sites directory does not exist. contact the website owner to fix this error</h1>
+  ';
+  exit();
 }
-
+}
+} 
+}
 }
 ?>
